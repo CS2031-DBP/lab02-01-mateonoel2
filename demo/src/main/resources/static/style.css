@@ -1,0 +1,25 @@
+/* Add some basic styling */
+body {
+    font-family: Arial, sans-serif;
+}
+header {
+    background-color: #f4f4f4;
+    padding: 10px;
+    text-align: center;
+}
+nav {
+    text-align: center;
+    background-color: #333;
+}
+nav a {
+    padding: 14px 20px;
+    display: inline-block;
+    color: white;
+    text-decoration: none;
+}
+nav a:hover {
+    background-color: #555;
+}
+main {
+    padding: 20px;
+}
