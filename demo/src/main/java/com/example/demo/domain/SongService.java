@@ -46,7 +46,30 @@ public class SongService {
         Optional<Song> optionalSong = songRepository.findById(id);
         if (optionalSong.isPresent()) {
             Song existingSong = optionalSong.get();
-            existingSong.setTitle(song.getTitle());
+            if (song.getTitle() != null) {
+                existingSong.setTitle(song.getTitle());
+            }
+            if (song.getArtist() != null) {
+                existingSong.setArtist(song.getArtist());
+            }
+            if (song.getAlbum() != null) {
+                existingSong.setAlbum(song.getAlbum());
+            }
+            if (song.getReleaseDate() != null) {
+                existingSong.setReleaseDate(song.getReleaseDate());
+            }
+            if (song.getGenre() != null) {
+                existingSong.setGenre(song.getGenre());
+            }
+            if (song.getDuration() != null) {
+                existingSong.setDuration(song.getDuration());
+            }
+            if (song.getCoverImage() != null) {
+                existingSong.setCoverImage(song.getCoverImage());
+            }
+            if (song.getSpotifyUrl() != null) {
+                existingSong.setSpotifyUrl(song.getSpotifyUrl());
+            }
             songRepository.save(existingSong);
         }
         return optionalSong;
