@@ -1,8 +1,6 @@
-package com.example.demo.playlist.domain;
+package com.example.demo.domain;
 import jakarta.persistence.*;
 import java.util.List;
-
-import com.example.demo.song.domain.Song;
 
 @Entity
 @Table(name = "playlist")

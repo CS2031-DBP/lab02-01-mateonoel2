@@ -1,12 +1,12 @@
-package com.example.demo.playlist.application;
+package com.example.demo.application;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.playlist.domain.Playlist;
-import com.example.demo.playlist.domain.PlaylistRepository;
+import com.example.demo.domain.Playlist;
+import com.example.demo.domain.PlaylistService;
 
 import java.util.List;
 
@@ -15,17 +15,17 @@ import java.util.List;
 public class PlaylistController {
 
     @Autowired
-    private PlaylistRepository playlistRepository;
+    private PlaylistService playlistService;
 
     @GetMapping
     public ResponseEntity<List<Playlist>> playlists() {
-        List<Playlist> playlists = playlistRepository.findAll();
+        List<Playlist> playlists = playlistService.getAllPlaylists();
         return new ResponseEntity<>(playlists, HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity<String> playlist(@RequestBody Playlist playlist) {
-        playlistRepository.save(playlist);
+        playlistService.savePlaylist(playlist);
         return ResponseEntity.status(201).body("Created");
     }
 }
