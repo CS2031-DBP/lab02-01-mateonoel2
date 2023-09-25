@@ -18,6 +18,14 @@ public class PlaylistService {
         return playlistRepository.findAll();
     }
 
+    public Playlist getPlaylist(Long id) {
+        Optional<Playlist> optionalPlaylist = playlistRepository.findById(id);
+        if (optionalPlaylist.isPresent()) {
+            return optionalPlaylist.get();
+        }
+        return null;
+    }
+
     public Playlist savePlaylist(Playlist playlist) {
         return playlistRepository.save(playlist);
     }

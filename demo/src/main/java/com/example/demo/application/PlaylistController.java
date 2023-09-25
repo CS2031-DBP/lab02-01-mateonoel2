@@ -29,6 +29,12 @@ public class PlaylistController {
         return ResponseEntity.status(201).body("Created");
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Playlist> playlist(@PathVariable("id") Long id) {
+        Playlist playlist = playlistService.getPlaylist(id);
+        return new ResponseEntity<>(playlist, HttpStatus.OK);
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<String> playlist(@PathVariable("id") Long id, @RequestBody Playlist playlist) {
         playlistService.updatePlaylist(id, playlist);
